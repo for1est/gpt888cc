@@ -38,7 +38,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* Hero Section - 优化后更大更突出 */
         .hero {
             min-height: 100vh;
             background: var(--hero-gradient);
@@ -47,7 +47,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 60px 20px;
+            padding: 40px 20px 60px;
             overflow: hidden;
         }
 
@@ -65,46 +65,47 @@
         .hero-content {
             text-align: center;
             z-index: 1;
-            max-width: 800px;
+            width: 100%;
+            max-width: 1000px;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: 4.5rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.15);
             letter-spacing: -0.02em;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-size: 2rem;
             color: rgba(255,255,255,0.95);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             font-weight: 500;
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: rgba(255,255,255,0.85);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.25rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2.5rem;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -135,13 +136,13 @@
             transform: translateY(-3px);
         }
 
-        /* Video Container */
+        /* Video Container - 更大更突出 */
         .video-container {
             width: 100%;
-            max-width: 720px;
+            max-width: 900px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+            box-shadow: 0 30px 100px rgba(0,0,0,0.3);
             background: white;
             margin: 0 auto;
         }
@@ -169,7 +170,7 @@
         }
 
         .section-title {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-size: 2.25rem;
             font-weight: 700;
             text-align: center;
             margin-bottom: 1rem;
@@ -204,13 +205,13 @@
         }
 
         .step-number {
-            width: 56px;
-            height: 56px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: white;
             margin: 0 auto 1.5rem;
@@ -224,9 +225,9 @@
         .step:not(:last-child)::after {
             content: '';
             position: absolute;
-            top: 28px;
-            left: calc(50% + 40px);
-            width: calc(100% - 80px);
+            top: 32px;
+            left: calc(50% + 45px);
+            width: calc(100% - 90px);
             height: 3px;
             background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
         }
@@ -236,14 +237,14 @@
         }
 
         .step h3 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .step p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         /* Features Section */
@@ -253,7 +254,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
@@ -272,13 +273,13 @@
         }
 
         .feature-icon {
-            width: 56px;
-            height: 56px;
+            width: 64px;
+            height: 64px;
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
+            font-size: 2rem;
             margin-bottom: 1.25rem;
         }
 
@@ -287,14 +288,14 @@
         .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
 
         .feature-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .feature-card p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         /* Trust Section */
@@ -304,8 +305,10 @@
 
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .trust-card {
@@ -313,11 +316,6 @@
             border-radius: 20px;
             padding: 2rem;
             box-shadow: var(--card-shadow);
-        }
-
-        .trust-card.highlight {
-            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
-            border: 2px solid #f9a8d4;
         }
 
         .trust-header {
@@ -328,21 +326,20 @@
         }
 
         .trust-icon {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
         }
 
         .trust-card:nth-child(1) .trust-icon { background: #d1fae5; }
         .trust-card:nth-child(2) .trust-icon { background: #fef3c7; }
-        .trust-card:nth-child(3) .trust-icon { background: #e0e7ff; }
 
         .trust-card h3 {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             font-weight: 600;
         }
 
@@ -356,7 +353,7 @@
             align-items: flex-start;
             gap: 0.75rem;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .trust-list li::before {
@@ -374,7 +371,7 @@
         }
 
         .contact-label {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
         }
@@ -386,7 +383,7 @@
         }
 
         .wechat-id {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
             color: var(--accent-blue);
         }
@@ -397,7 +394,7 @@
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -408,26 +405,12 @@
         }
 
         .contact-tip {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             margin-top: 0.75rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        /* Invoice Card */
-        .invoice-card {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-            border: 2px solid #6ee7b7;
-        }
-
-        .invoice-card .trust-icon { background: white; }
-
-        .invoice-amount {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-orange);
         }
 
         /* Instructions Section */
@@ -451,8 +434,8 @@
         }
 
         .instruction-number {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background: var(--accent-orange);
             color: white;
             border-radius: 50%;
@@ -460,24 +443,25 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 1.1rem;
             flex-shrink: 0;
         }
 
         .instruction-content h4 {
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .instruction-content p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
         }
 
         .instruction-link {
             color: var(--accent-blue);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -497,6 +481,7 @@
             justify-content: center;
             gap: 1rem;
             margin-top: 1.5rem;
+            font-size: 1.05rem;
         }
 
         .proxy-banner span {
@@ -517,7 +502,7 @@
         }
 
         .footer-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -525,6 +510,7 @@
         .footer-subtitle {
             color: rgba(255,255,255,0.7);
             margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
         .footer-contact {
@@ -540,10 +526,11 @@
             align-items: center;
             gap: 0.5rem;
             color: rgba(255,255,255,0.8);
+            font-size: 1.05rem;
         }
 
         .footer-disclaimer {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             color: rgba(255,255,255,0.5);
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -558,8 +545,8 @@
         }
 
         .floating-btn {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             border-radius: 50%;
             display: flex;
@@ -568,7 +555,7 @@
             box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             text-decoration: none;
         }
 
@@ -577,23 +564,112 @@
             box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5);
         }
 
-        /* Responsive */
+        /* ========== 移动端适配 ========== */
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
-                padding: 40px 16px;
+                padding: 30px 16px 50px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.35rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 1rem 2rem;
+            }
+
+            .video-container {
+                border-radius: 12px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.25);
             }
 
             .section {
-                padding: 60px 16px;
+                padding: 50px 16px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
             }
 
             .step:not(:last-child)::after {
                 display: none;
             }
 
-            .features-grid,
-            .trust-grid {
+            .step {
+                min-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .step-number {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+            }
+
+            .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.75rem;
+            }
+
+            .trust-card {
+                padding: 1.5rem;
+            }
+
+            .instruction-item {
+                padding: 1.25rem 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .instruction-number {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .proxy-banner {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
             }
 
             .floating-contact {
@@ -601,9 +677,48 @@
                 right: 20px;
             }
 
-            .proxy-banner {
+            .floating-btn {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+            }
+
+            .footer {
+                padding: 40px 16px 24px;
+            }
+
+            .footer-title {
+                font-size: 1.5rem;
+            }
+
+            .footer-contact {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-wechat {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .copy-btn {
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -751,15 +866,6 @@
                     💡 温馨提示：遇到任何问题随时联系客服
                 </p>
             </div>
-            
-            <div class="trust-card invoice-card">
-                <div class="trust-header">
-                    <div class="trust-icon">🧾</div>
-                    <h3>正规发票服务</h3>
-                </div>
-                <p>消费满 <span class="invoice-amount">¥200</span> 即可申请开具正规发票</p>
-                <p style="color: var(--text-secondary); margin-top: 0.75rem; font-size: 0.9rem;">支持增值税普通发票，满足企业报销需求</p>
-            </div>
         </div>
     </section>
 
@@ -785,7 +891,7 @@
                     <p>访问充值网站，按照页面提示完成充值操作</p>
                     <a href="https://ow800.com/" target="_blank" class="instruction-link">👉 点击前往充值</a>
                     <br>
-                    <span style="color: var(--text-secondary); font-size: 0.85rem;">📺 可以结合上方视频教程一步步操作</span>
+                    <span style="color: var(--text-secondary); font-size: 0.9rem;">📺 可以结合上方视频教程一步步操作</span>
                 </div>
             </div>
             
