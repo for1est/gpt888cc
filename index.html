@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Plus 一键秒充 ChatGPT</title>
+    <meta name="description" content="ChatGPT Plus 一键秒充，20秒完成充值，iOS正规代充服务，全自动化充值技术">
+    <meta name="keywords" content="ChatGPT Plus,GPT充值,ChatGPT代充,iOS代充">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --hero-gradient: linear-gradient(135deg, #43c6ac 0%, #5f72bd 50%, #9f7aea 100%);
+            --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --text-primary: #1a1a2e;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f97316;
+            --accent-pink: #ec4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--hero-gradient);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+
+        /* Video Container */
+        .video-container {
+            width: 100%;
+            max-width: 720px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+            background: white;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            background: white;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .step:nth-child(1) .step-number { background: var(--accent-green); }
+        .step:nth-child(2) .step-number { background: var(--accent-blue); }
+        .step:nth-child(3) .step-number { background: var(--accent-purple); }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: calc(50% + 40px);
+            width: calc(100% - 80px);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+        }
+
+        .step:nth-child(2)::after {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+        .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .trust-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .trust-card.highlight {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            border: 2px solid #f9a8d4;
+        }
+
+        .trust-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .trust-card:nth-child(1) .trust-icon { background: #d1fae5; }
+        .trust-card:nth-child(2) .trust-icon { background: #fef3c7; }
+        .trust-card:nth-child(3) .trust-icon { background: #e0e7ff; }
+
+        .trust-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .trust-list {
+            list-style: none;
+        }
+
+        .trust-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .trust-list li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .contact-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-wechat {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .wechat-id {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .copy-btn {
+            padding: 0.5rem 1rem;
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: #059669;
+        }
+
+        .contact-tip {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Invoice Card */
+        .invoice-card {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #6ee7b7;
+        }
+
+        .invoice-card .trust-icon { background: white; }
+
+        .invoice-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        /* Instructions Section */
+        .instructions-section {
+            background: white;
+        }
+
+        .instructions-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .instruction-item {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .instruction-number {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .instruction-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .instruction-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .instruction-link {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .instruction-link:hover {
+            text-decoration: underline;
+        }
+
+        .proxy-banner {
+            background: linear-gradient(135deg, #fef9c3 0%, #fde047 100%);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .proxy-banner span {
+            font-weight: 500;
+        }
+
+        .proxy-wechat {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-disclaimer {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.5);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Floating Contact */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .section {
+                padding: 60px 16px;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .features-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-contact {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .proxy-banner {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .video-container {
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .step {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+
+        .feature-card {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ChatGPT Plus</h1>
+            <p class="hero-subtitle">一键秒充 ChatGPT</p>
+            <p class="hero-description">20 秒完成充值，永久免费教程</p>
+            
+            <div class="hero-buttons">
+                <a href="https://fe.dtyuedan.cn/shop/RB3OE0RJ" target="_blank" class="btn btn-primary">
+                    💎 购买卡密
+                </a>
+                <a href="https://ow800.com/" target="_blank" class="btn btn-secondary">
+                    ⚡ 充值Plus
+                </a>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%236b7280'%3E点击播放视频教程%3C/text%3E%3C/svg%3E">
+                        <source src="http://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/514196921671.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="section steps-section">
+        <h2 class="section-title">三步完成充值</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>点击购买</h3>
+                <p>选择套餐完成付款</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>获取登录</h3>
+                <p>登录您的 ChatGPT 账号</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>瞬间到账</h3>
+                <p>Plus 权限立即生效</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features-section">
+        <h2 class="section-title">为什么选择我们？</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>全自动流程</h3>
+                <p>无需复杂操作，一键完成充值</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>超低费率</h3>
+                <p>比官方价格节省 15% 以上</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>官方账号安全</h3>
+                <p>直接充值到您的官方账户</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section trust-section">
+        <h2 class="section-title">🛡️ 信任保障</h2>
+        <p class="section-subtitle">iOS 正规代充服务，全自动化充值技术</p>
+        
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-header">
+                    <div class="trust-icon">📱</div>
+                    <h3>iOS 正规代充</h3>
+                </div>
+                <ul class="trust-list">
+                    <li>正规 Apple 账户充值通道</li>
+                    <li>全自动化充值技术，无需人工干预</li>
+                    <li>账户安全有保障，不留后门</li>
+                    <li>7×24小时自动处理订单</li>
+                </ul>
+            </div>
+            
+            <div class="trust-card">
+                <div class="trust-header">
+                    <div class="trust-icon">💬</div>
+                    <h3>遇到问题？</h3>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-label">专属客服微信：</div>
+                    <div class="contact-wechat">
+                        <span class="wechat-id">TTanJump</span>
+                        <button class="copy-btn" onclick="copyWechat()">复制微信号</button>
+                    </div>
+                </div>
+                <p class="contact-tip">
+                    💡 温馨提示：遇到任何问题随时联系客服
+                </p>
+            </div>
+            
+            <div class="trust-card invoice-card">
+                <div class="trust-header">
+                    <div class="trust-icon">🧾</div>
+                    <h3>正规发票服务</h3>
+                </div>
+                <p>消费满 <span class="invoice-amount">¥200</span> 即可申请开具正规发票</p>
+                <p style="color: var(--text-secondary); margin-top: 0.75rem; font-size: 0.9rem;">支持增值税普通发票，满足企业报销需求</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section class="section instructions-section">
+        <h2 class="section-title">💡 使用说明</h2>
+        <p class="section-subtitle">简单两步，快速完成充值</p>
+        
+        <div class="instructions-container">
+            <div class="instruction-item">
+                <div class="instruction-number">1</div>
+                <div class="instruction-content">
+                    <h4>发卡网自助购买卡密</h4>
+                    <p>通过发卡网平台自助购买充值卡密，操作简单快捷</p>
+                    <a href="https://fe.dtyuedan.cn/shop/RB3OE0RJ" target="_blank" class="instruction-link">👉 点击前往购买卡密</a>
+                </div>
+            </div>
+            
+            <div class="instruction-item">
+                <div class="instruction-number">2</div>
+                <div class="instruction-content">
+                    <h4>打开 ow800.com 进行充值</h4>
+                    <p>访问充值网站，按照页面提示完成充值操作</p>
+                    <a href="https://ow800.com/" target="_blank" class="instruction-link">👉 点击前往充值</a>
+                    <br>
+                    <span style="color: var(--text-secondary); font-size: 0.85rem;">📺 可以结合上方视频教程一步步操作</span>
+                </div>
+            </div>
+            
+            <div class="proxy-banner">
+                <span>👥 遇到问题？</span>
+                <span>→</span>
+                <span>微信: <span class="proxy-wechat">TTanJump</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3 class="footer-title">GPT Plus 充值服务</h3>
+        <p class="footer-subtitle">安全 · 快速 · 省钱</p>
+        
+        <div class="footer-contact">
+            <div class="footer-contact-item">
+                💬 客服微信: TTanJump
+            </div>
+            <div class="footer-contact-item">
+                📱 iOS 正规代充服务
+            </div>
+        </div>
+        
+        <p class="footer-disclaimer">
+            © 2024 GPT Plus 充值服务. 本站仅提供技术服务，与 OpenAI 无关联关系。
+        </p>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="#" class="floating-btn" title="联系客服" onclick="copyWechat(); return false;">
+            💬
+        </a>
+    </div>
+
+    <script>
+        function copyWechat() {
+            navigator.clipboard.writeText('TTanJump').then(() => {
+                alert('微信号已复制：TTanJump');
+            }).catch(() => {
+                prompt('请复制微信号：', 'TTanJump');
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.step, .feature-card, .trust-card').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
