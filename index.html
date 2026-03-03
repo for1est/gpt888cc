@@ -47,166 +47,6 @@
         }
 
         /* Hero Section - 优化后更大更突出 */
-        /* Announcement Banner */
-        .announcement-bar {
-            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-            border-bottom: 1px solid #c7d2fe;
-            padding: 0.625rem 1rem;
-        }
-
-        .announcement-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-
-        .announcement-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #c7d2fe;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .announcement-icon svg {
-            width: 14px;
-            height: 14px;
-            color: #4f46e5;
-        }
-
-        .announcement-text {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #312e81;
-        }
-
-        /* Bookmark Toast */
-        .bookmark-toast {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-            z-index: 1001;
-            max-width: 360px;
-            opacity: 0;
-            transform: translateY(16px);
-            pointer-events: none;
-            transition: all 0.5s ease;
-        }
-
-        .bookmark-toast.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .bookmark-toast-inner {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            border: 1px solid #e5e7eb;
-            padding: 1.5rem;
-            position: relative;
-        }
-
-        .bookmark-close {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: none;
-            border: none;
-            color: #9ca3af;
-            cursor: pointer;
-            padding: 4px;
-            transition: color 0.2s;
-        }
-
-        .bookmark-close:hover {
-            color: #4b5563;
-        }
-
-        .bookmark-content {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .bookmark-icon-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .bookmark-icon-circle svg {
-            width: 24px;
-            height: 24px;
-            color: white;
-        }
-
-        .bookmark-text h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-
-        .bookmark-text p {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-
-        .bookmark-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .bookmark-btn {
-            flex: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .bookmark-btn:hover {
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-        }
-
-        .bookmark-later {
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            color: #6b7280;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .bookmark-later:hover {
-            color: #1f2937;
-        }
-
         .hero {
             min-height: 100vh;
             background: var(--hero-gradient);
@@ -851,16 +691,6 @@
                 font-size: 1.5rem;
             }
 
-            .bookmark-toast {
-                right: 12px;
-                left: 12px;
-                max-width: none;
-            }
-
-            .announcement-text {
-                font-size: 0.8rem;
-            }
-
             .footer {
                 padding: 40px 16px 24px;
             }
@@ -938,20 +768,6 @@
     </style>
 </head>
 <body>
-    <!-- Announcement Banner -->
-    <div class="announcement-bar">
-        <div class="announcement-inner">
-            <span class="announcement-icon">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"></path>
-                </svg>
-            </span>
-            <span class="announcement-text">
-                GPT‑5 已全面开放深度研究和图片生成功能，Plus 用户可享更高使用额度，立即升级体验！
-            </span>
-        </div>
-    </div>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -965,9 +781,6 @@
                 </a>
                 <a href="https://ow800.com/" target="_blank" class="btn btn-secondary">
                     ⚡ 充值Plus
-                </a>
-                <a href="guide.html" class="btn btn-secondary">
-                    📖 充值教程
                 </a>
             </div>
             
@@ -1053,7 +866,7 @@
                 <div class="contact-box">
                     <div class="contact-label">专属客服微信：</div>
                     <div class="contact-wechat">
-                        <span class="wechat-id">Timmie04_</span>
+                        <span class="wechat-id">TTanJump</span>
                         <button class="copy-btn" onclick="copyWechat()">复制微信号</button>
                     </div>
                 </div>
@@ -1093,7 +906,7 @@
             <div class="proxy-banner">
                 <span>👥 遇到问题？</span>
                 <span>→</span>
-                <span>微信: <span class="proxy-wechat">Timmie04_</span></span>
+                <span>微信: <span class="proxy-wechat">TTanJump</span></span>
             </div>
         </div>
     </section>
@@ -1105,7 +918,7 @@
         
         <div class="footer-contact">
             <div class="footer-contact-item">
-                💬 客服微信: Timmie04_
+                💬 客服微信: TTanJump
             </div>
             <div class="footer-contact-item">
                 📱 iOS 正规代充服务
@@ -1124,39 +937,12 @@
         </a>
     </div>
 
-    <!-- Bookmark Toast -->
-    <div id="bookmark-toast" class="bookmark-toast">
-        <div class="bookmark-toast-inner">
-            <button id="bookmark-close" class="bookmark-close" aria-label="关闭提示">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 6L6 18"></path>
-                    <path d="M6 6l12 12"></path>
-                </svg>
-            </button>
-            <div class="bookmark-content">
-                <div class="bookmark-icon-circle">
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 21l-7-4-7 4V5a2 2 0 012-2h10a2 2 0 012 2z"></path>
-                    </svg>
-                </div>
-                <div class="bookmark-text">
-                    <h3>收藏本站</h3>
-                    <p>收藏本网站，下次充值更方便！快速访问 ChatGPT Plus 充值服务。</p>
-                    <div class="bookmark-actions">
-                        <button id="bookmark-action" class="bookmark-btn">⭐ 立即收藏</button>
-                        <button id="bookmark-later" class="bookmark-later">稍后再说</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         function copyWechat() {
-            navigator.clipboard.writeText('Timmie04_').then(() => {
-                alert('微信号已复制：Timmie04_');
+            navigator.clipboard.writeText('TTanJump').then(() => {
+                alert('微信号已复制：TTanJump');
             }).catch(() => {
-                prompt('请复制微信号：', 'Timmie04_');
+                prompt('请复制微信号：', 'TTanJump');
             });
         }
 
@@ -1173,38 +959,6 @@
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
-
-        // Bookmark Toast
-        (function() {
-            var key = 'bookmark-toast-dismissed';
-            var toast = document.getElementById('bookmark-toast');
-            var closeBtn = document.getElementById('bookmark-close');
-            var laterBtn = document.getElementById('bookmark-later');
-            var actionBtn = document.getElementById('bookmark-action');
-            if (!toast) return;
-            if (sessionStorage.getItem(key)) return;
-
-            function dismiss() {
-                toast.classList.remove('show');
-                sessionStorage.setItem(key, '1');
-            }
-
-            function show() {
-                toast.classList.add('show');
-            }
-
-            setTimeout(show, 3000);
-
-            if (closeBtn) closeBtn.addEventListener('click', dismiss);
-            if (laterBtn) laterBtn.addEventListener('click', dismiss);
-            if (actionBtn) {
-                actionBtn.addEventListener('click', function() {
-                    var isMac = /Mac|iPhone|iPad/.test(navigator.userAgent);
-                    alert('请按 ' + (isMac ? '\u2318+D' : 'Ctrl+D') + ' 将本站添加到浏览器收藏夹');
-                    dismiss();
-                });
-            }
-        })();
     </script>
 </body>
 </html>
