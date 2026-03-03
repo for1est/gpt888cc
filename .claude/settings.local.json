@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:gptone.win)",
+      "Bash(start:*)",
+      "Bash(curl:*)",
+      "Bash(python:*)"
+    ]
+  }
+}

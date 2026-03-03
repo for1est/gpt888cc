@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3B3H9X93C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T3B3H9X93C');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>充值教程 - ChatGPT Plus 一键秒充</title>
+    <meta name="description" content="ChatGPT Plus 充值图文教程，手把手教你 5 步完成充值升级">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --hero-gradient: linear-gradient(135deg, #43c6ac 0%, #5f72bd 50%, #9f7aea 100%);
+            --text-primary: #1a1a2e;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f97316;
+            --accent-pink: #ec4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Top Nav */
+        .top-nav {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-nav-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #2563eb;
+        }
+
+        .nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--hero-gradient);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Guide Content */
+        .guide-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px 80px;
+        }
+
+        .guide-step {
+            margin-bottom: 3rem;
+        }
+
+        .guide-step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-step-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .guide-step:nth-child(1) .guide-step-badge { background: linear-gradient(135deg, #10b981, #059669); }
+        .guide-step:nth-child(2) .guide-step-badge { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .guide-step:nth-child(3) .guide-step-badge { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .guide-step:nth-child(4) .guide-step-badge { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .guide-step:nth-child(5) .guide-step-badge { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+        .guide-step-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        .guide-step-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-step-tip {
+            background: #f0fdf4;
+            border-left: 3px solid var(--accent-green);
+            padding: 0.75rem 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #166534;
+            margin-bottom: 1rem;
+        }
+
+        .guide-step-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+            cursor: zoom-in;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.15);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .guide-completion {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .guide-completion h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-completion p {
+            color: #047857;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 40px 20px 24px;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 40px 16px;
+            }
+
+            .page-header h1 {
+                font-size: 1.85rem;
+            }
+
+            .guide-content {
+                padding: 30px 16px 60px;
+            }
+
+            .guide-step-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .guide-step-badge {
+                width: 40px;
+                height: 40px;
+                font-size: 0.75rem;
+            }
+
+            .guide-step-title {
+                font-size: 1.15rem;
+            }
+
+            .guide-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .guide-step {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .guide-step:nth-child(1) { animation-delay: 0.1s; }
+        .guide-step:nth-child(2) { animation-delay: 0.15s; }
+        .guide-step:nth-child(3) { animation-delay: 0.2s; }
+        .guide-step:nth-child(4) { animation-delay: 0.25s; }
+        .guide-step:nth-child(5) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-inner">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            <span class="nav-title">充值教程</span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>📖 充值教程</h1>
+        <p>图文详解，手把手教你 5 步完成充值</p>
+    </header>
+
+    <!-- Guide Content -->
+    <main class="guide-content">
+        <div class="guide-step">
+            <div class="guide-step-header">
+                <div class="guide-step-badge">01</div>
+                <h3 class="guide-step-title">点击立即开始充值</h3>
+            </div>
+            <p class="guide-step-desc">点击下方「立即开始充值」按钮，进入充值套餐选择页面，选择你需要的 ChatGPT Plus 充值套餐。</p>
+            <div class="guide-step-tip">💡 建议收藏购买页面，方便下次续费时快速找到。</div>
+            <img class="guide-step-img" src="images/guide/step-01.png" alt="点击购买卡密按钮进入套餐选择页面" width="720" height="405" loading="eager">
+        </div>
+
+        <div class="guide-step">
+            <div class="guide-step-header">
+                <div class="guide-step-badge">02</div>
+                <h3 class="guide-step-title">支付宝 / 微信付款</h3>
+            </div>
+            <p class="guide-step-desc">选择支付宝或微信支付完成付款。支付成功后你会立即获得一个充值卡密。</p>
+            <div class="guide-step-tip">💡 支付时请确认金额无误，付款成功后请妥善保存卡密信息。</div>
+            <img class="guide-step-img" src="images/guide/step-02.png" alt="使用支付宝或微信支付完成付款" width="720" height="405" loading="lazy">
+        </div>
+
+        <div class="guide-step">
+            <div class="guide-step-header">
+                <div class="guide-step-badge">03</div>
+                <h3 class="guide-step-title">进入充值网站，输入卡密验证</h3>
+            </div>
+            <p class="guide-step-desc">购买完成后进入充值网站 <a href="https://ow800.com/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 500;">ow800.com</a>，将获得的卡密输入到验证框中。验证成功后，在官网登录你的 ChatGPT 账号。你也可以直接点击「前往登录」按钮，系统会自动帮你跳转到 ChatGPT 登录页面。</p>
+            <div class="guide-step-tip">💡 请确保登录的是你自己要升级的 ChatGPT 账号。</div>
+            <img class="guide-step-img" src="images/guide/step-03.png" alt="进入充值网站输入卡密验证并登录 ChatGPT" width="720" height="405" loading="lazy">
+        </div>
+
+        <div class="guide-step">
+            <div class="guide-step-header">
+                <div class="guide-step-badge">04</div>
+                <h3 class="guide-step-title">获取充值密钥并核对</h3>
+            </div>
+            <p class="guide-step-desc">登录后会进入获取密钥界面，点击「获取密钥」按钮。网站会为你生成一个唯一的充值密钥（一串字母数字组合）。将密钥全部复制下来，粘贴到下方的「输入充值密钥」框中，点击「核对」。</p>
+            <div class="guide-step-tip">💡 密钥是一次性的，请完整复制，不要遗漏任何字符。</div>
+            <img class="guide-step-img" src="images/guide/step-04.png" alt="获取充值密钥并复制粘贴到输入框核对" width="720" height="405" loading="lazy">
+        </div>
+
+        <div class="guide-step">
+            <div class="guide-step-header">
+                <div class="guide-step-badge">05</div>
+                <h3 class="guide-step-title">确认充值，10 秒完成升级</h3>
+            </div>
+            <p class="guide-step-desc">核对成功后进入充值确认步骤，点击「确认充值」按钮。大概等待 10 秒钟，系统即可完成 ChatGPT Plus 升级。刷新 ChatGPT 页面后，你的账号会直接显示 Plus 标识。</p>
+            <div class="guide-step-tip">💡 充值过程中请勿关闭页面，等待系统提示充值成功即可。</div>
+            <img class="guide-step-img" src="images/guide/step-05.png" alt="点击确认充值后等待 10 秒完成 Plus 升级" width="720" height="405" loading="lazy">
+        </div>
+
+        <div class="guide-completion">
+            <h3>🎉 充值完成！</h3>
+            <p>整个过程不到 3 分钟。刷新 ChatGPT 页面后，你的账号会直接显示 Plus 标识，即可畅享 GPT‑5 更高额度和全部 Plus 专属功能。</p>
+            <div class="guide-cta-buttons">
+                <a href="https://fe.dtyuedan.cn/shop/RB3OE0RJ" target="_blank" class="btn btn-primary">💎 购买卡密</a>
+                <a href="https://ow800.com/" target="_blank" class="btn btn-secondary">⚡ 充值Plus</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3 class="footer-title">GPT Plus 充值服务</h3>
+        <p class="footer-subtitle">安全 · 快速 · 省钱</p>
+        <p class="footer-disclaimer">
+            © 2026 GPT Plus 充值服务. 本站仅提供技术服务，与 OpenAI 无关联关系。
+        </p>
+    </footer>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="大图预览">
+    </div>
+
+    <script>
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.guide-step-img').forEach(function(img) {
+            img.addEventListener('dblclick', function() {
+                lightboxImg.src = this.src;
+                lightboxImg.alt = this.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
