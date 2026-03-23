@@ -846,7 +846,8 @@
             $('rc-cdk-display').textContent = cdkCode;
             goToStep(2);
         } catch(e) {
-            showError(rcCdkError, '网络错误，请稍后重试');
+            console.error('[充值] 验证卡密失败:', e);
+            showError(rcCdkError, '网络错误，请稍后重试（' + (e.message || e) + '）');
         }
         rcVerifyBtn.disabled = false;
         rcVerifyBtn.textContent = '验证卡密';
@@ -907,7 +908,8 @@
             $('rc-confirm-check').checked = false;
             goToStep(3);
         } catch(e) {
-            showError(rcStep2Error, '网络错误，请稍后重试');
+            console.error('[充值] 核对账户失败:', e);
+            showError(rcStep2Error, '网络错误，请稍后重试（' + (e.message || e) + '）');
         }
         rcNextBtn.disabled = false;
         rcNextBtn.textContent = '核对账户';
@@ -956,7 +958,8 @@
             showProcessing();
             startPolling(taskId);
         } catch(e) {
-            showError(rcConfirmError, '网络错误，请检查网络后重试');
+            console.error('[充值] 提交充值失败:', e);
+            showError(rcConfirmError, '网络错误，请检查网络后重试（' + (e.message || e) + '）');
         }
         rcSubmitBtn.disabled = false;
         rcSubmitBtn.textContent = '确认充值';
