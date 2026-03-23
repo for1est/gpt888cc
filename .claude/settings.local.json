@@ -3,7 +3,11 @@
     "allow": [
       "Bash(curl:*)",
       "Bash(python:*)",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "WebFetch(domain:receipt.nitro.xin)",
+      "Skill(browse)",
+      "WebFetch(domain:ow800.com)",
+      "Bash(grep:*)"
     ]
   }
 }

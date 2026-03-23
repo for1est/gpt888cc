@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3B3H9X93C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T3B3H9X93C');
+    </script>
+    <!-- Baidu Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3d3b12f2537898bd01c8b9f8a4ba3cb1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Plus 在线充值 - 一键秒充</title>
+    <meta name="description" content="ChatGPT Plus 在线充值页面，输入卡密和账号密钥即可完成充值，安全快速。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-hover: #2563eb;
+            --primary-light: rgba(59, 130, 246, 0.1);
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --warning-color: #f59e0b;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --border-radius: 12px;
+            --shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Page Container */
+        .topup-container {
+            min-height: 100vh;
+            padding: 40px 24px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-color); }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding: 32px 24px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), #8b5cf6, #ec4899);
+        }
+        .page-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            margin-bottom: 24px;
+            padding: 24px;
+            background: #fafafa;
+            border-radius: 6px;
+            border: 1px solid #f0f0f0;
+            animation: fadeInUp 0.6s ease-out 0.5s both;
+        }
+        .steps-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            background: #e5e7eb;
+            color: #9ca3af;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .step-item.active .step-dot {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .step-item.done .step-dot {
+            background: var(--success-color);
+            color: white;
+        }
+        .step-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+        .step-item.active .step-label {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .step-item.done .step-label {
+            color: var(--success-color);
+        }
+        .step-line {
+            width: 40px;
+            height: 1px;
+            background: #d9d9d9;
+            margin: 0 12px;
+            transition: background 0.3s;
+        }
+        .step-line.done { background: var(--success-color); }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out 0.7s both;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+        }
+        .main-card {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .card-body {
+            padding: 32px 24px;
+        }
+
+        /* Step Panels */
+        .step-panel { display: none; }
+        .step-panel.active { display: block; }
+
+        /* Form Elements */
+        .form-group { margin-bottom: 16px; }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+        .form-input {
+            width: 100%;
+            height: 44px;
+            padding: 0 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--text-color);
+            background: white;
+            outline: none;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+        }
+        .form-input::placeholder { color: #bfbfbf; }
+        .form-input.error { border-color: var(--error-color); }
+        textarea.form-input {
+            height: auto;
+            padding: 12px 16px;
+            resize: none;
+            font-size: 13px;
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            line-height: 1.5;
+        }
+
+        .form-error {
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--error-color);
+            display: none;
+        }
+        .form-error.show { display: block; }
+
+        .form-hint {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 24px;
+            height: 44px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+            transform: translateY(-1px);
+        }
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-primary.full { width: 100%; }
+
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+        .btn-success:hover { background: #059669; }
+
+        .btn-default {
+            background: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        .btn-default:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-link {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            padding: 0;
+            height: auto;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-link:hover { color: var(--primary-hover); text-decoration: underline; }
+
+        /* Alert Boxes */
+        .alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        .alert-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+        }
+        .alert-warning {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #92400e;
+        }
+        .alert-info {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e40af;
+        }
+        .alert svg { flex-shrink: 0; margin-top: 2px; }
+
+        /* Section Box (for step 2) */
+        .section-box {
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .section-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+
+        /* Confirm Info Table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .info-table tr {
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .info-table tr:last-child { border-bottom: none; }
+        .info-table td {
+            padding: 12px 0;
+            font-size: 14px;
+        }
+        .info-table .info-label {
+            color: var(--text-secondary);
+            width: 100px;
+        }
+        .info-table .info-value {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Checkbox */
+        .confirm-check {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        .confirm-check input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Button Row */
+        .btn-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        /* Result Views */
+        .result-view {
+            text-align: center;
+            padding: 48px 0;
+            display: none;
+        }
+        .result-view.active { display: block; }
+
+        .result-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .result-icon.spinning {
+            width: 72px; height: 72px;
+            border: 4px solid #e5e7eb;
+            border-top-color: var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+        .result-icon.success-icon { background: #dcfce7; }
+        .result-icon.fail-icon { background: #fee2e2; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .result-title.text-success { color: var(--success-color); }
+        .result-title.text-error { color: var(--error-color); }
+
+        .result-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .result-timer {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+        .result-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            padding: 24px 0 40px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .page-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        .page-footer a:hover { text-decoration: underline; }
+
+        /* No card link */
+        .no-card-link {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .no-card-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .no-card-link a:hover { text-decoration: underline; }
+
+        /* Gradient line */
+        .gradient-line {
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), #8b5cf6, #ec4899);
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 768px) {
+            .topup-container { padding: 24px 16px; }
+            .card:hover { transform: none; box-shadow: var(--shadow); }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 480px) {
+            .topup-container { padding: 16px 12px; }
+            .page-header { padding: 24px 16px; }
+            .page-title { font-size: 1.4rem; }
+            .page-subtitle { font-size: 13px; }
+            .progress-steps { padding: 12px 8px; }
+            .step-label { display: none; }
+            .step-line { width: 20px; margin: 0 4px; }
+            .step-dot { width: 28px; height: 28px; font-size: 12px; }
+            .card-header { padding: 16px; font-size: 15px; }
+            .card-body { padding: 20px 16px; }
+            .section-box { padding: 16px; }
+            .section-box h4 { font-size: 13px; }
+            .btn { height: 40px; font-size: 14px; padding: 0 16px; }
+            .btn.full { height: 44px; }
+            .btn-row { flex-wrap: wrap; gap: 10px; }
+            .btn-row .btn { flex: 1; min-width: 0; }
+            .form-input { height: 40px; font-size: 14px; padding: 0 12px; }
+            textarea.form-input { padding: 10px 12px; }
+            .alert { font-size: 12px; padding: 10px 12px; }
+            .warn-inline { flex-direction: column; }
+            .info-table .info-label { width: 80px; font-size: 13px; }
+            .info-table .info-value { font-size: 13px; }
+            .confirm-check { font-size: 13px; }
+            .result-icon { width: 60px; height: 60px; }
+            .result-icon.spinning { width: 60px; height: 60px; }
+            .result-title { font-size: 18px; }
+            .result-desc { font-size: 13px; }
+            .result-actions { flex-direction: column; width: 100%; }
+            .result-actions .btn { width: 100%; }
+            .page-footer { font-size: 12px; }
+            .no-card-link { font-size: 12px; }
+            .back-link { margin-bottom: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topup-container">
+
+    <!-- Back Link -->
+    <a href="index.html" class="back-link">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        返回首页
+    </a>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">ChatGPT Plus/Pro 充值</h1>
+        <p class="page-subtitle">安全 · 快速 · 便捷的充值服务</p>
+    </div>
+
+    <!-- Progress Steps -->
+    <div class="progress-steps">
+        <div class="steps-bar">
+            <div class="step-item active" data-step="1">
+                <div class="step-dot">1</div>
+                <span class="step-label">验证卡密</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" data-step="2">
+                <div class="step-dot">2</div>
+                <span class="step-label">获取密钥</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" data-step="3">
+                <div class="step-dot">3</div>
+                <span class="step-label">确认充值</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-item" data-step="4">
+                <div class="step-dot">4</div>
+                <span class="step-label">充值完成</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card main-card">
+        <div class="gradient-line"></div>
+
+        <!-- Step 1: Verify CDK -->
+        <div class="step-panel active" id="step-1">
+            <div class="card-header">第一步：验证卡密</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input type="text" id="rc-cdk" class="form-input" placeholder="请输入您的卡密" autocomplete="off">
+                    <div class="form-error" id="rc-cdk-error"></div>
+                </div>
+                <button class="btn btn-primary full" id="rc-verify-btn">验证卡密</button>
+                <div class="no-card-link">
+                    没有卡密？<a href="https://fe.dtyuedan.cn/shop/RB3OE0RJ" target="_blank" rel="noopener noreferrer">立即购买</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Get Token -->
+        <div class="step-panel" id="step-2">
+            <div class="card-header">第二步：获取充值密钥</div>
+            <div class="card-body">
+
+                <!-- CDK verified banner -->
+                <div class="alert alert-success" id="rc-verified-alert">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>已验证卡密：<strong id="rc-cdk-display"></strong></span>
+                </div>
+
+                <!-- Get Token Section -->
+                <div class="section-box">
+                    <h4>第一步：获取充值密钥</h4>
+                    <a href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer" class="btn btn-success">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
+                        获取充值密钥
+                    </a>
+                    <div class="alert alert-warning" style="margin-top:12px;margin-bottom:0">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z"/></svg>
+                        <span>如果返回充值密钥是 <code style="padding:1px 6px;background:#fef3c7;border-radius:4px;font-size:12px">{}</code>，则登录不成功，请
+                            <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:#92400e;font-weight:500">点我重新登录 ChatGPT</a>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Paste Token Section -->
+                <div class="section-box">
+                    <h4>第二步：输入充值密钥</h4>
+                    <textarea id="rc-token" class="form-input" rows="5" placeholder="请将上方返回的全部充值密钥复制至此处"></textarea>
+                </div>
+
+                <div class="form-error" id="rc-step2-error"></div>
+
+                <div class="btn-row">
+                    <button class="btn btn-default" id="rc-back-1">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                        返回
+                    </button>
+                    <button class="btn btn-primary" id="rc-next-btn">核对账户</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Confirm -->
+        <div class="step-panel" id="step-3">
+            <div class="card-header">第三步：确认充值</div>
+            <div class="card-body">
+                <div class="section-box">
+                    <table class="info-table">
+                        <tr>
+                            <td class="info-label">账户邮箱</td>
+                            <td class="info-value" id="rc-cf-email"></td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">账户类型</td>
+                            <td class="info-value" id="rc-cf-plan"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <label class="confirm-check">
+                    <input type="checkbox" id="rc-confirm-check">
+                    我确认以上信息无误，同意进行充值操作
+                </label>
+
+                <div class="form-error" id="rc-confirm-error"></div>
+
+                <div class="btn-row">
+                    <button class="btn btn-default" id="rc-back-2">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                        返回
+                    </button>
+                    <button class="btn btn-primary" id="rc-submit-btn">确认充值</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Result -->
+        <div class="step-panel" id="step-4">
+            <div class="card-body">
+                <!-- Processing -->
+                <div class="result-view active" id="rc-processing">
+                    <div class="result-icon spinning"></div>
+                    <h3 class="result-title">充值处理中</h3>
+                    <p class="result-desc" id="rc-processing-msg">正在处理您的充值请求，请稍候...</p>
+                    <p class="result-timer"><span id="rc-poll-timer">已等待 0 秒</span> · 请勿关闭页面</p>
+                </div>
+                <!-- Success -->
+                <div class="result-view" id="rc-success">
+                    <div class="result-icon success-icon">
+                        <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#10b981" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="result-title text-success">充值成功！</h3>
+                    <p class="result-desc" id="rc-success-msg">您的 ChatGPT Plus 已成功升级</p>
+                    <div class="result-actions">
+                        <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            前往 ChatGPT
+                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Failure -->
+                <div class="result-view" id="rc-fail">
+                    <div class="result-icon fail-icon">
+                        <svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="#ef4444" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                    </div>
+                    <h3 class="result-title text-error">充值失败</h3>
+                    <p class="result-desc" id="rc-fail-msg"></p>
+                    <p class="result-desc">充值失败将全额退款，如需帮助请联系客服</p>
+                    <div class="alert alert-info" style="text-align:left;margin-top:20px">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+                        <span>充值不成功？<a href="https://receipt.nitro.xin/redeem/chatgpt" target="_blank" rel="noopener noreferrer" style="color:#1e40af;font-weight:600;text-decoration:underline">点击这里进入备用充值入口</a></span>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn btn-default" id="rc-retry-btn">重新充值</button>
+                        <a href="https://receipt.nitro.xin/redeem/chatgpt" target="_blank" rel="noopener noreferrer" class="btn btn-primary">前往备用入口</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+        <a href="index.html">返回首页</a>·
+        <a href="guide.html">充值教程</a>·
+        <a href="https://fe.dtyuedan.cn/shop/RB3OE0RJ" target="_blank" rel="noopener noreferrer">购买卡密</a>·
+        <a href="https://receipt.nitro.xin/redeem/chatgpt" target="_blank" rel="noopener noreferrer">备用充值入口</a>
+        <p style="margin-top:12px">&copy; 2026 自动化代充系统. 保留所有权利.</p>
+        <p>使用本服务即表示您同意我们的服务条款和隐私政策</p>
+    </div>
+
+</div>
+
+<script>
+(function() {
+    var API_BASE = 'https://receipt-api.nitro.xin';
+    var PRODUCT_ID = 'chatgpt';
+    var POLL_INTERVAL_MS = 5000;
+    var MAX_POLL_SECONDS = 300;
+
+    // State
+    var cdkCode = '';
+    var userToken = '';
+    var verifiedUser = null;
+    var pollInterval = null;
+    var pollSeconds = 0;
+
+    function $(id) { return document.getElementById(id); }
+
+    function showError(el, msg) { el.textContent = msg; el.classList.add('show'); }
+    function hideError(el) { el.classList.remove('show'); }
+
+    // Common headers for all requests
+    function baseHeaders() {
+        return { 'X-Device-Id': 'web' };
+    }
+
+    function jsonHeaders(extra) {
+        var h = baseHeaders();
+        h['Content-Type'] = 'application/json';
+        if (extra) { for (var k in extra) h[k] = extra[k]; }
+        return h;
+    }
+
+    function goToStep(step) {
+        [1, 2, 3, 4].forEach(function(s) {
+            var panel = $('step-' + s);
+            if (panel) panel.classList.toggle('active', s === step);
+        });
+        var items = document.querySelectorAll('.step-item');
+        var lines = document.querySelectorAll('.step-line');
+        items.forEach(function(el, i) {
+            var s = i + 1;
+            el.classList.remove('active', 'done');
+            if (s === step) el.classList.add('active');
+            else if (s < step) el.classList.add('done');
+        });
+        lines.forEach(function(el, i) {
+            el.classList.toggle('done', i + 1 < step);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function parseToken(raw) {
+        var trimmed = raw.trim();
+        try {
+            var obj = JSON.parse(trimmed);
+            return {
+                accessToken: obj.accessToken || obj.access_token || '',
+                fullToken: trimmed,
+                email: (obj.user && obj.user.email) || '',
+                planType: ((obj.account && obj.account.planType) || (obj.user && obj.user.plan_type) || '').toLowerCase()
+            };
+        } catch(e) {
+            return { accessToken: trimmed, fullToken: trimmed, email: '', planType: '' };
+        }
+    }
+
+    // === Step 1: Verify CDK ===
+    var rcCdk = $('rc-cdk');
+    var rcCdkError = $('rc-cdk-error');
+    var rcVerifyBtn = $('rc-verify-btn');
+
+    rcVerifyBtn.addEventListener('click', async function() {
+        hideError(rcCdkError);
+        var val = rcCdk.value.trim();
+        if (!val) { showError(rcCdkError, '请输入卡密'); return; }
+
+        rcVerifyBtn.disabled = true;
+        rcVerifyBtn.textContent = '验证中...';
+        try {
+            var resp = await fetch(API_BASE + '/cdks/public/check', {
+                method: 'POST',
+                headers: jsonHeaders({ 'X-Product-ID': PRODUCT_ID }),
+                body: JSON.stringify({ code: val })
+            });
+            if (!resp.ok) {
+                var errText = await resp.text();
+                showError(rcCdkError, errText.trim() || '卡密验证失败');
+                rcVerifyBtn.disabled = false;
+                rcVerifyBtn.textContent = '验证卡密';
+                return;
+            }
+            var res = await resp.json();
+            // Check if CDK is used
+            if (res.used) {
+                showError(rcCdkError, '该卡密已被使用');
+                rcVerifyBtn.disabled = false;
+                rcVerifyBtn.textContent = '验证卡密';
+                return;
+            }
+            cdkCode = val;
+            $('rc-cdk-display').textContent = cdkCode;
+            goToStep(2);
+        } catch(e) {
+            showError(rcCdkError, '网络错误，请稍后重试');
+        }
+        rcVerifyBtn.disabled = false;
+        rcVerifyBtn.textContent = '验证卡密';
+    });
+
+    rcCdk.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') rcVerifyBtn.click();
+    });
+
+    // === Step 2: Token ===
+    var rcToken = $('rc-token');
+    var rcStep2Error = $('rc-step2-error');
+    var rcBack1 = $('rc-back-1');
+    var rcNextBtn = $('rc-next-btn');
+
+    rcBack1.addEventListener('click', function() { goToStep(1); });
+
+    rcNextBtn.addEventListener('click', async function() {
+        hideError(rcStep2Error);
+        var token = rcToken.value.trim();
+        if (!token) { showError(rcStep2Error, '请输入充值密钥'); rcToken.focus(); return; }
+        if (token === '{}' || token.length < 10) {
+            showError(rcStep2Error, '密钥无效，请确认已登录 ChatGPT 后重新获取');
+            rcToken.focus();
+            return;
+        }
+
+        var parsed = parseToken(token);
+
+        rcNextBtn.disabled = true;
+        rcNextBtn.textContent = '验证中...';
+        try {
+            var resp = await fetch(API_BASE + '/external/public/check-user', {
+                method: 'POST',
+                headers: jsonHeaders({ 'X-Product-ID': PRODUCT_ID }),
+                body: JSON.stringify({ user: token, cdk: cdkCode })
+            });
+            if (!resp.ok) {
+                var errText = await resp.text();
+                showError(rcStep2Error, errText.trim() || '账号验证失败');
+                rcNextBtn.disabled = false;
+                rcNextBtn.textContent = '核对账户';
+                return;
+            }
+            var res = await resp.json();
+            // Check if verified
+            if (res.verified === false) {
+                showError(rcStep2Error, '账号密钥验证失败，请检查后重试');
+                rcNextBtn.disabled = false;
+                rcNextBtn.textContent = '核对账户';
+                return;
+            }
+            userToken = token;
+            verifiedUser = res;
+
+            $('rc-cf-email').textContent = (res && res.user) || parsed.email || '（未读取到）';
+            $('rc-cf-plan').textContent = (res && res.has_sub) ? '已有会员' : (!plan || plan === 'free' ? '免费版' : plan);
+            $('rc-confirm-check').checked = false;
+            goToStep(3);
+        } catch(e) {
+            showError(rcStep2Error, '网络错误，请稍后重试');
+        }
+        rcNextBtn.disabled = false;
+        rcNextBtn.textContent = '核对账户';
+    });
+
+    // === Step 3: Confirm ===
+    var rcBack2 = $('rc-back-2');
+    var rcSubmitBtn = $('rc-submit-btn');
+    var rcConfirmError = $('rc-confirm-error');
+    var rcConfirmCheck = $('rc-confirm-check');
+
+    rcBack2.addEventListener('click', function() { goToStep(2); });
+
+    rcSubmitBtn.addEventListener('click', async function() {
+        hideError(rcConfirmError);
+        if (!rcConfirmCheck.checked) {
+            showError(rcConfirmError, '请先勾选确认信息');
+            return;
+        }
+
+        rcSubmitBtn.disabled = true;
+        rcSubmitBtn.textContent = '提交中...';
+        try {
+            // Choose API based on CDK prefix: "R_" -> aftersale/redeem, otherwise -> stocks/outstock
+            var redeemUrl = cdkCode.startsWith('R_')
+                ? API_BASE + '/aftersale/public/redeem'
+                : API_BASE + '/stocks/public/outstock';
+
+            var resp = await fetch(redeemUrl, {
+                method: 'POST',
+                headers: jsonHeaders(),
+                body: JSON.stringify({ cdk: cdkCode, user: userToken })
+            });
+
+            if (!resp.ok) {
+                var errText = await resp.text();
+                goToStep(4);
+                showFail(errText.trim() || '充值失败');
+                rcSubmitBtn.disabled = false;
+                rcSubmitBtn.textContent = '确认充值';
+                return;
+            }
+
+            var taskId = (await resp.text()).trim();
+            goToStep(4);
+            showProcessing();
+            startPolling(taskId);
+        } catch(e) {
+            showError(rcConfirmError, '网络错误，请检查网络后重试');
+        }
+        rcSubmitBtn.disabled = false;
+        rcSubmitBtn.textContent = '确认充值';
+    });
+
+    // === Step 4: Results ===
+    var rcProcessing = $('rc-processing');
+    var rcSuccess = $('rc-success');
+    var rcFail = $('rc-fail');
+    var rcPollTimer = $('rc-poll-timer');
+    var rcSuccessMsg = $('rc-success-msg');
+    var rcFailMsg = $('rc-fail-msg');
+
+    function showProcessing() {
+        rcProcessing.classList.add('active');
+        rcSuccess.classList.remove('active');
+        rcFail.classList.remove('active');
+        pollSeconds = 0;
+        rcPollTimer.textContent = '已等待 0 秒';
+        stopPolling();
+    }
+
+    function showSuccess(msg) {
+        rcProcessing.classList.remove('active');
+        rcSuccess.classList.add('active');
+        rcFail.classList.remove('active');
+        rcSuccessMsg.textContent = msg || '您的 ChatGPT Plus 已成功升级';
+        stopPolling();
+    }
+
+    function showFail(msg) {
+        rcProcessing.classList.remove('active');
+        rcSuccess.classList.remove('active');
+        rcFail.classList.add('active');
+        rcFailMsg.textContent = msg || '充值失败，请联系客服';
+        stopPolling();
+    }
+
+    function startPolling(taskId) {
+        pollInterval = setInterval(async function() {
+            pollSeconds += 5;
+            rcPollTimer.textContent = '已等待 ' + pollSeconds + ' 秒';
+            if (pollSeconds >= MAX_POLL_SECONDS) {
+                stopPolling();
+                showFail('充值超时，请联系客服确认充值状态');
+                return;
+            }
+            try {
+                var resp = await fetch(API_BASE + '/stocks/public/outstock/' + encodeURIComponent(taskId), {
+                    method: 'GET',
+                    headers: baseHeaders()
+                });
+                if (!resp.ok) return; // keep polling
+                var res = await resp.json();
+                var status = (res.status || '').trim().toLowerCase();
+                var errorMsg = (typeof res.error === 'string' && res.error.trim()) ? res.error.trim() : '';
+
+                if (status === 'finish') {
+                    // finish with error means failure
+                    if (errorMsg) {
+                        showFail(errorMsg);
+                    } else {
+                        showSuccess('充值成功');
+                    }
+                } else if (status === 'cancel') {
+                    showFail(errorMsg || '任务已取消');
+                }
+                // "doing" or other statuses -> keep polling
+            } catch(e) { /* keep polling on network error */ }
+        }, POLL_INTERVAL_MS);
+    }
+
+    function stopPolling() {
+        if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+    }
+
+    // Retry
+    $('rc-retry-btn').addEventListener('click', function() {
+        stopPolling();
+        rcCdk.value = '';
+        rcToken.value = '';
+        cdkCode = '';
+        userToken = '';
+        verifiedUser = null;
+        rcFail.classList.remove('active');
+        rcSuccess.classList.remove('active');
+        rcProcessing.classList.remove('active');
+        goToStep(1);
+    });
+})();
+</script>
+
+</body>
+</html>
