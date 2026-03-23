@@ -792,6 +792,8 @@
 
     function parseToken(raw) {
         var trimmed = raw.trim();
+        // Strip trailing "解释" from browser JSON viewer
+        trimmed = trimmed.replace(/(解释|Explain|复制|Copy)\s*$/i, '').trim();
         try {
             var obj = JSON.parse(trimmed);
             return {
@@ -863,7 +865,8 @@
 
     rcNextBtn.addEventListener('click', async function() {
         hideError(rcStep2Error);
-        var token = rcToken.value.trim();
+        var token = rcToken.value.trim().replace(/(解释|Explain|复制|Copy)\s*$/i, '').trim();
+        rcToken.value = token; // update textarea with cleaned value
         if (!token) { showError(rcStep2Error, '请输入充值密钥'); rcToken.focus(); return; }
         if (token === '{}' || token.length < 10) {
             showError(rcStep2Error, '密钥无效，请确认已登录 ChatGPT 后重新获取');
