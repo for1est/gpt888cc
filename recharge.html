@@ -751,7 +751,7 @@
 (function() {
     var API_BASE = 'https://receipt-api.nitro.xin';
     var PRODUCT_ID = 'chatgpt';
-    var POLL_INTERVAL_MS = 5000;
+    var POLL_INTERVAL_MS = 3000;
     var MAX_POLL_SECONDS = 300;
 
     // State
@@ -766,17 +766,10 @@
     function showError(el, msg) { el.textContent = msg; el.classList.add('show'); }
     function hideError(el) { el.classList.remove('show'); }
 
-    // Common headers for all requests
-    function baseHeaders() {
-        return { 'X-Device-Id': 'web' };
-    }
-
-    function jsonHeaders(extra) {
-        var h = baseHeaders();
-        h['Content-Type'] = 'application/json';
-        if (extra) { for (var k in extra) h[k] = extra[k]; }
-        return h;
-    }
+    // Headers - match original site exactly
+    // CDK check & check-user: only X-Product-ID
+    // outstock & redeem: only X-Device-Id
+    // poll: no custom headers
 
     function goToStep(step) {
         [1, 2, 3, 4].forEach(function(s) {
@@ -827,7 +820,7 @@
         try {
             var resp = await fetch(API_BASE + '/cdks/public/check', {
                 method: 'POST',
-                headers: jsonHeaders({ 'X-Product-ID': PRODUCT_ID }),
+                headers: { 'X-Product-ID': PRODUCT_ID, 'X-Device-Id': 'web' },
                 body: JSON.stringify({ code: val })
             });
             if (!resp.ok) {
@@ -885,7 +878,7 @@
         try {
             var resp = await fetch(API_BASE + '/external/public/check-user', {
                 method: 'POST',
-                headers: jsonHeaders({ 'X-Product-ID': PRODUCT_ID }),
+                headers: { 'X-Product-ID': PRODUCT_ID, 'X-Device-Id': 'web' },
                 body: JSON.stringify({ user: token, cdk: cdkCode })
             });
             if (!resp.ok) {
@@ -943,7 +936,7 @@
 
             var resp = await fetch(redeemUrl, {
                 method: 'POST',
-                headers: jsonHeaders(),
+                headers: { 'X-Device-Id': 'web' },
                 body: JSON.stringify({ cdk: cdkCode, user: userToken })
             });
 
@@ -1003,7 +996,7 @@
 
     function startPolling(taskId) {
         pollInterval = setInterval(async function() {
-            pollSeconds += 5;
+            pollSeconds += 3;
             rcPollTimer.textContent = '已等待 ' + pollSeconds + ' 秒';
             if (pollSeconds >= MAX_POLL_SECONDS) {
                 stopPolling();
@@ -1013,7 +1006,7 @@
             try {
                 var resp = await fetch(API_BASE + '/stocks/public/outstock/' + encodeURIComponent(taskId), {
                     method: 'GET',
-                    headers: baseHeaders()
+                    headers: { 'X-Device-Id': 'web' }
                 });
                 if (!resp.ok) return; // keep polling
                 var res = await resp.json();
