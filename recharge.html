@@ -907,7 +907,7 @@
             verifiedUser = res;
 
             $('rc-cf-email').textContent = (res && res.user) || parsed.email || '（未读取到）';
-            $('rc-cf-plan').textContent = (res && res.has_sub) ? '已有会员' : (!plan || plan === 'free' ? '免费版' : plan);
+            $('rc-cf-plan').textContent = (res && res.has_sub) ? '已有会员' : (!parsed.planType || parsed.planType === 'free' ? '免费版' : parsed.planType);
             $('rc-confirm-check').checked = false;
             goToStep(3);
         } catch(e) {
